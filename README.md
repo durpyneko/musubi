@@ -10,6 +10,9 @@
     </a>
     
 </p>
+<p> 
+</p>
+</div>
 
 <pre>
 A ──┐
@@ -19,13 +22,7 @@ B ──┘       │
 D ──────────┘
 </pre>
 
-<p>
-    
-</p>
-
-</div>
-
-What is Musubi?
+# What is Musubi?
 
 • Musubi is a Rust-based graph composition system for building workflows where multiple independent inputs can be transformed, combined, and ultimately resolved into a single result.
 
@@ -33,4 +30,8 @@ What is Musubi?
 
 • This allows independent parts of a workflow to be processed separately before being joined together. 
 
-• Musubi also allows super fast backwords traversal!
+• Musubi also allows super fast backwords traversal and instant node resolution!
+
+# Status
+
+🚧 Early development — API and architecture are subject to change.
