@@ -71,6 +71,12 @@ Apple ─┘              ├─Super Candy Apple
 Super ────────────────┘
 </pre>
 
+# Roadmap
+
+- [x] Render a Graph
+- [ ] Append a method to a Node
+- [ ] Traverse the Graph
+
 # Status
 
 🚧 Early development — API and architecture are subject to change.
