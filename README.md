@@ -32,7 +32,20 @@ D ──────────┘
 
 • Musubi also allows super fast backwords traversal and instant node resolution!
 
-# Example
+# Example(s)
+
+## 1: Simple
+
+<pre>
+Candy ─┐
+       ├─Candy Apple ─┐
+Apple ─┘              ├─Super Candy Apple
+                      │
+Super ────────────────┘
+</pre>
+
+<details>
+<summary>View source</summary>
 
 ```rs
 use musubi::graph::Graph;
@@ -61,15 +74,57 @@ fn main() {
     render(&graph, &positions);
 }
 ```
-# 
+</details>
+
+## 1: Little Complex
 
 <pre>
 Candy ─┐
        ├─Candy Apple ─┐
-Apple ─┘              ├─Super Candy Apple
-                      │
-Super ────────────────┘
+Apple ─┘              │
+                      ├─Super Big Candy Apple
+Super ─┐              │
+       ├─Super Big ───┘
+Big ───┘
 </pre>
+
+<details>
+<summary>View source</summary>
+
+```rs
+use musubi::graph::Graph;
+use musubi::layout::layout;
+use musubi::node::Node;
+use musubi::render::render;
+
+fn main() {
+    let mut graph = Graph::new();
+
+    let b = graph.add_node(Node::new(Some("Candy".into())));
+    let a = graph.add_node(Node::new(Some("Apple".into())));
+    let c = graph.add_node(Node::new(None));
+
+    let e = graph.add_node(Node::new(Some("Super".into())));
+    let d = graph.add_node(Node::new(Some("Big".into())));
+    let f = graph.add_node(Node::new(None));
+    let g = graph.add_node(Node::new(None));
+
+    graph.connect(a, c, "".into());
+    graph.connect(b, c, "".into());
+
+    graph.connect(d, f, "".into());
+    graph.connect(e, f, "".into());
+
+    graph.connect(c, g, "".into());
+    graph.connect(f, g, "".into());
+
+    let positions = layout(&graph);
+
+    render(&graph, &positions);
+}
+```
+</details>
+<br>
 
 # Roadmap
 
