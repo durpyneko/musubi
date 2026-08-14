@@ -76,7 +76,7 @@ fn main() {
 ```
 </details>
 
-## 1: Little Complex
+## 2: Little Complex
 
 <pre>
 Candy ─┐
