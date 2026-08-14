@@ -32,6 +32,45 @@ D ──────────┘
 
 • Musubi also allows super fast backwords traversal and instant node resolution!
 
+# Example
+
+```rs
+use musubi::graph::Graph;
+use musubi::layout::layout;
+use musubi::node::Node;
+use musubi::render::render;
+
+fn main() {
+    let mut graph = Graph::new();
+
+    let b = graph.add_node(Node::new(Some("Candy".into())));
+    let a = graph.add_node(Node::new(Some("Apple".into())));
+    let c = graph.add_node(Node::new(None));
+
+    let d = graph.add_node(Node::new(Some("Super".into())));
+    let e = graph.add_node(Node::new(None));
+
+    graph.connect(a, c, "".into());
+    graph.connect(b, c, "".into());
+
+    graph.connect(c, e, "".into());
+    graph.connect(d, e, "".into());
+
+    let positions = layout(&graph);
+
+    render(&graph, &positions);
+}
+```
+# 
+
+<pre>
+Candy ─┐
+       ├─Candy Apple ─┐
+Apple ─┘              ├─Super Candy Apple
+                      │
+Super ────────────────┘
+</pre>
+
 # Status
 
 🚧 Early development — API and architecture are subject to change.
