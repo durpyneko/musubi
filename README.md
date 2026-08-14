@@ -124,7 +124,6 @@ fn main() {
 }
 ```
 </details>
-<br>
 
 # Roadmap
 
